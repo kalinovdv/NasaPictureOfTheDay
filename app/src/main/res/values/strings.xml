@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">NasaPictureOfTheDay</string>
+    <string name="app_name">Фотография дня</string>
+    <string name="photo_of_the_day_stub">Фотография дня</string>
+
 </resources>
