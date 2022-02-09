@@ -1,4 +1,4 @@
-package ru.geekbrains.nasapictureoftheday
+package ru.geekbrains.nasapictureoftheday.utils
 
 import android.content.Context
 import android.util.AttributeSet

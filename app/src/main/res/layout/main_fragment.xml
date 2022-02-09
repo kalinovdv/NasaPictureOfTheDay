@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ru.geekbrains.nasapictureoftheday.EquilateralImageView
+    <ru.geekbrains.nasapictureoftheday.utils.EquilateralImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
