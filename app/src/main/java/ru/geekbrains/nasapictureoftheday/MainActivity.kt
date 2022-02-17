@@ -2,7 +2,7 @@ package ru.geekbrains.nasapictureoftheday
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ru.geekbrains.nasapictureoftheday.ui.main.MainFragment
+import ru.geekbrains.nasapictureoftheday.picture.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commitNow()
         }
     }

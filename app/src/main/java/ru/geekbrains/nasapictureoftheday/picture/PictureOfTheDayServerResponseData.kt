@@ -2,7 +2,7 @@ package ru.geekbrains.nasapictureoftheday.picture
 
 import com.google.gson.annotations.SerializedName
 
-data class PODServerResponseData(
+data class PictureOfTheDayServerResponseData(
     @field:SerializedName("copyright") val copyright: String?,
     @field:SerializedName("date") val date: String?,
     @field:SerializedName("explanation") val explanation: String?,
