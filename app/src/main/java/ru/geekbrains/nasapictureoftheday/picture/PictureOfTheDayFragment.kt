@@ -1,5 +1,7 @@
 package ru.geekbrains.nasapictureoftheday.picture
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +26,13 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        input_layout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
+            })
+        }
+
         viewModel = ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
         viewModel.getData().observe(
             this@PictureOfTheDayFragment,
