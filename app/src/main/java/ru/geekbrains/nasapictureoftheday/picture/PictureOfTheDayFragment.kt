@@ -6,14 +6,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.main_fragment.*
 import ru.geekbrains.nasapictureoftheday.R
 
 class PictureOfTheDayFragment : Fragment() {
+
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     private lateinit var viewModel: PictureOfTheDayViewModel
 
@@ -26,6 +31,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
 
         input_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -44,6 +51,7 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
+                val explanation = serverResponseData.explanation
                 if (url.isNullOrEmpty()) {
                     Toast.makeText(context, "Пустая ссылка", Toast.LENGTH_LONG).show()
                 } else {
@@ -52,6 +60,21 @@ class PictureOfTheDayFragment : Fragment() {
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+
+                    bottomSheetBehavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+                        override fun onStateChanged(bottomSheet: View, newState: Int) {
+                            when (newState) {
+                                BottomSheetBehavior.STATE_EXPANDED -> {
+                                    val textDescription = bottomSheet.findViewById<TextView>(R.id.bottom_sheet_description)
+                                    textDescription.setText(explanation)
+                                }
+                            }
+                        }
+
+                        override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
+                        }
+                    })
                 }
             }
             is PictureOfTheDayData.Loading -> {
@@ -61,6 +84,11 @@ class PictureOfTheDayFragment : Fragment() {
                 Toast.makeText(context, data.error.message, Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
     companion object {

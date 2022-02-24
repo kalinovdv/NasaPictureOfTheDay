@@ -3,5 +3,7 @@
     <string name="photo_of_the_day_stub">Фотография дня</string>
     <string name="search_wiki">Найти в Википедии</string>
     <string name="wiki_helper_text">Поищите термин в википедии</string>
+    <string name="bottom_sheet_description_header_text">Two Clusters and a Comet</string>
+    <string name="bottom_sheet_description_text">This lovely starfield spans some four full moons.</string>
 
 </resources>
