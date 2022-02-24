@@ -3,9 +3,7 @@ package ru.geekbrains.nasapictureoftheday.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.main_fragment.*
+import ru.geekbrains.nasapictureoftheday.MainActivity
 import ru.geekbrains.nasapictureoftheday.R
 
 class PictureOfTheDayFragment : Fragment() {
@@ -44,6 +43,27 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.getData().observe(
             this@PictureOfTheDayFragment,
             { renderData(it) })
+
+        setBottomAppBar(view)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_search -> Toast.makeText(context, "Найти", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun setBottomAppBar(view: View) {
+        val context = activity as MainActivity
+        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+        setHasOptionsMenu(true)
     }
 
     private fun renderData(data: PictureOfTheDayData) {

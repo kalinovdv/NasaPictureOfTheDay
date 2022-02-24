@@ -5,5 +5,7 @@
     <string name="wiki_helper_text">Поищите термин в википедии</string>
     <string name="bottom_sheet_description_header_text">Two Clusters and a Comet</string>
     <string name="bottom_sheet_description_text">This lovely starfield spans some four full moons.</string>
+    <string name="app_bar_favorit_title">Избранное</string>
+    <string name="app_bar_search_title">Настройки</string>
 
 </resources>
