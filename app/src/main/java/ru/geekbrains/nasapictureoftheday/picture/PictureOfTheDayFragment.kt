@@ -39,10 +39,14 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
 
+        fab.setOnClickListener({
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        })
+
         viewModel = ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
         viewModel.getData().observe(
-            this@PictureOfTheDayFragment,
-            { renderData(it) })
+            this@PictureOfTheDayFragment
+        ) { renderData(it) }
 
         setBottomAppBar(view)
     }
@@ -56,6 +60,9 @@ class PictureOfTheDayFragment : Fragment() {
         when (item.itemId) {
             R.id.app_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT).show()
             R.id.app_bar_search -> Toast.makeText(context, "Найти", Toast.LENGTH_SHORT).show()
+            android.R.id.home -> {
+                activity?.let { BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag") }
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -86,7 +93,7 @@ class PictureOfTheDayFragment : Fragment() {
                             when (newState) {
                                 BottomSheetBehavior.STATE_EXPANDED -> {
                                     val textDescription = bottomSheet.findViewById<TextView>(R.id.bottom_sheet_description)
-                                    textDescription.setText(explanation)
+                                    textDescription.text = explanation
                                 }
                             }
                         }
