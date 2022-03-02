@@ -9,5 +9,8 @@
     <string name="app_bar_search_title">Настройки</string>
     <string name="navigation_one_title">На экран 1</string>
     <string name="navigation_two_title">На экран 2</string>
+    <string name="chip_two_day_text">Позавчера</string>
+    <string name="chip_one_day_text">Вчера</string>
+    <string name="chip_today_text">Сегодня</string>
 
 </resources>
