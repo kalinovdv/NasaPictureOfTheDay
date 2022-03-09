@@ -7,24 +7,28 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.geekbrains.nasapictureoftheday.BuildConfig
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PictureOfTheDayViewModel(
     private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
     private val retrofitImpl: PictureOfTheDayRetrofitImpl = PictureOfTheDayRetrofitImpl()
 ) :
     ViewModel() {
-    fun getData(): LiveData<PictureOfTheDayData> {
-        sendServerRequest()
+    fun getData(date: String): LiveData<PictureOfTheDayData> {
+        sendServerRequest(date)
         return liveDataForViewToObserve
     }
 
-    private fun sendServerRequest() {
+    private fun sendServerRequest(date: String) {
         liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
+        //val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        //val date: String = simpleDateFormat.format(Calendar.getInstance().time)
         if (apiKey.isBlank()) {
             PictureOfTheDayData.Error(Throwable("Вам необходим API ключ"))
         } else {
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object : Callback<PictureOfTheDayServerResponseData> {
+            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey, date).enqueue(object : Callback<PictureOfTheDayServerResponseData> {
                 override fun onResponse(
                     call: Call<PictureOfTheDayServerResponseData>,
                     response: Response<PictureOfTheDayServerResponseData>

@@ -2,10 +2,12 @@ package ru.geekbrains.nasapictureoftheday.picture
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -14,12 +16,18 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.main_fragment.*
 import ru.geekbrains.nasapictureoftheday.MainActivity
 import ru.geekbrains.nasapictureoftheday.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PictureOfTheDayFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     private lateinit var viewModel: PictureOfTheDayViewModel
+
+    private lateinit var dateOfCalendar: Calendar
+
+    private lateinit var dateOfPicture: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +36,13 @@ class PictureOfTheDayFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dateOfCalendar = Calendar.getInstance()
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
 
@@ -39,12 +52,41 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
 
-        fab.setOnClickListener({
+        fab.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-        })
+        }
+
+        chip_today.setOnClickListener {
+            dateOfCalendar = Calendar.getInstance()
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
+            viewModel.getData(dateOfPicture).observe(
+                this@PictureOfTheDayFragment
+            ) { renderData(it) }
+        }
+
+        chip_one_day.setOnClickListener {
+            dateOfCalendar = Calendar.getInstance()
+            dateOfCalendar.add(Calendar.DATE, -1)
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
+            viewModel.getData(dateOfPicture).observe(
+                this@PictureOfTheDayFragment
+            ) { renderData(it) }
+        }
+
+        chip_two_day.setOnClickListener {
+            dateOfCalendar = Calendar.getInstance()
+            dateOfCalendar.add(Calendar.DATE, -2)
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
+            viewModel.getData(dateOfPicture).observe(
+                this@PictureOfTheDayFragment
+            ) { renderData(it) }
+        }
 
         viewModel = ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
-        viewModel.getData().observe(
+        viewModel.getData(dateOfPicture).observe(
             this@PictureOfTheDayFragment
         ) { renderData(it) }
 
@@ -105,10 +147,10 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             is PictureOfTheDayData.Loading -> {
-                Toast.makeText(context, "Загрузка данных...", Toast.LENGTH_LONG).show()
+                //Toast.makeText(context, "Загрузка данных...", Toast.LENGTH_SHORT).show()
             }
             is PictureOfTheDayData.Error -> {
-                Toast.makeText(context, data.error.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, data.error.message, Toast.LENGTH_SHORT).show()
             }
         }
     }
