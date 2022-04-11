@@ -1,9 +1,121 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.NasaPictureOfTheDay" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/russooneregular</item>
+        <item name="android:fontFamily">@font/russooneregular</item>
+
+    </style>
+
+    <style name="main_search_in_wiki_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">@dimen/input_layout_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_layout_corner_radius_bottom_end</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_layout_corner_radius_bottom_start</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_layout_corner_radius_top_end</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_layout_corner_radius_top_end</item>
+        <item name="counterEnabled">true</item>
+        <item name="counterMaxLength">20</item>
+        <item name="endIconCheckable">true</item>
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="main_image_selection_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="main_image_selection_chips_group_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="singleSelection">true</item>
+        <item name="font">@font/cuprumvariablefont</item>
+    </style>
+
+    <style name="main_image_selection_chips_group_days" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/chip_text_style_appearance</item>
+    </style>
+
+    <style name="chip_text_style_appearance">
+        <item name="android:fontFamily">@font/russooneregular</item>
+    </style>
+
+    <style name="main_image_view_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="main_bottom_app_bar_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="fabAlignmentMode">center</item>
+    </style>
+
+    <style name="main_fab_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:tint">@color/fab_tint</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="layout_anchor">@id/main_bottom_app_bar</item>
+        <item name="srcCompat">@drawable/ic_plus_fab</item>
+    </style>
+
+    <style name="bottom_navigation_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_marginStart">@dimen/bottom_navigation_margin_start</item>
+        <item name="android:layout_marginLeft">@dimen/bottom_navigation_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/bottom_navigation_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/bottom_navigation_margin_end</item>
+        <item name="android:layout_marginRight">@dimen/bottom_navigation_margin_end</item>
+    </style>
+
+    <style name="bottom_sheet_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/bottom_sheet_background</item>
+        <item name="android:visibility">visible</item>
+        <item name="behavior_peekHeight">@dimen/bottom_sheet_behavior_peek_height</item>
+        <item name="layout_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</item>
+    </style>
+
+    <style name="bottom_sheet_line_style">
+        <item name="android:layout_width">@dimen/bottom_sheet_line_layout_width</item>
+        <item name="android:layout_height">@dimen/bottom_sheet_line_layout_height</item>
+        <item name="android:layout_marginTop">@dimen/bottom_sheet_line_layout_margin_top</item>
+        <item name="android:background">@color/bottom_sheet_line_background</item>
+    </style>
+
+    <style name="bottom_sheet_description_header_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/bottom_sheet_description_header_margin_top</item>
+        <item name="android:paddingStart">@dimen/bottom_sheet_description_header_padding_start</item>
+        <item name="android:paddingLeft">@dimen/bottom_sheet_description_header_padding_start</item>
+        <item name="android:paddingEnd">@dimen/bottom_sheet_description_header_padding_end</item>
+        <item name="android:paddingRight">@dimen/bottom_sheet_description_header_padding_end</item>
+        <item name="android:textColor">@color/bottom_sheet_description_header_colorText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bottom_sheet_description_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/bottom_sheet_description_padding_start</item>
+        <item name="android:paddingLeft">@dimen/bottom_sheet_description_padding_start</item>
+        <item name="android:paddingEnd">@dimen/bottom_sheet_description_padding_end</item>
+        <item name="android:paddingRight">@dimen/bottom_sheet_description_padding_end</item>
+
     </style>
 </resources>

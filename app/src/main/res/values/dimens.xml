@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dim_10dp">10dp</dimen>
-    <dimen name="dim_0dp">0dp</dimen>
+    <dimen name="input_layout_corner_radius_bottom_end">10dp</dimen>
+    <dimen name="input_layout_corner_radius_bottom_start">10dp</dimen>
+    <dimen name="input_layout_corner_radius_top_start">10dp</dimen>
+    <dimen name="input_layout_corner_radius_top_end">10dp</dimen>
+    <dimen name="input_layout_width">0dp</dimen>
     <dimen name="dim_375dp">375dp</dimen>
     <dimen name="dim_50dp">50dp</dimen>
     <dimen name="dim_25dp">25dp</dimen>
     <dimen name="dim_1dp">1dp</dimen>
     <dimen name="dim_5pd">5dp</dimen>
     <dimen name="dim_8dp">8dp</dimen>
+    <dimen name="bottom_sheet_behavior_peek_height">5dp</dimen>
+    <dimen name="bottom_sheet_description_header_margin_top">5dp</dimen>
+    <dimen name="bottom_sheet_description_header_padding_start">10dp</dimen>
+    <dimen name="bottom_sheet_description_header_padding_end">10dp</dimen>
+    <dimen name="bottom_sheet_description_padding_start">10dp</dimen>
+    <dimen name="bottom_sheet_description_padding_end">10dp</dimen>
+    <dimen name="bottom_sheet_line_layout_width">25dp</dimen>
+    <dimen name="bottom_sheet_line_layout_height">1dp</dimen>
+    <dimen name="bottom_sheet_line_layout_margin_top">5dp</dimen>
+    <dimen name="main_padding">10dp</dimen>
+    <dimen name="bottom_navigation_margin_start">8dp</dimen>
+    <dimen name="bottom_navigation_margin_top">8dp</dimen>
+    <dimen name="bottom_navigation_margin_end">8dp</dimen>
 </resources>

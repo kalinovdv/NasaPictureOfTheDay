@@ -3,14 +3,14 @@
     <group android:checkableBehavior="none">
 
         <item
-            android:id="@+id/navigation_one"
+            android:id="@+id/bottom_navigation_one"
             android:icon="@drawable/ic_archive"
-            android:title="@string/navigation_one_title"/>
+            android:title="@string/bottom_navigation_one_title"/>
 
         <item
-            android:id="@+id/navigation_two"
+            android:id="@+id/bottom_navigation_two"
             android:icon="@drawable/ic_send"
-            android:title="@string/navigation_two_title"/>
+            android:title="@string/bottom_navigation_two_title"/>
 
     </group>
 

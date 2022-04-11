@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -10,89 +9,66 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dim_10dp">
+        android:padding="@dimen/main_padding">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="@dimen/dim_0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/search_wiki"
-            app:boxCornerRadiusBottomEnd="@dimen/dim_10dp"
-            app:boxCornerRadiusBottomStart="@dimen/dim_10dp"
-            app:boxCornerRadiusTopEnd="@dimen/dim_10dp"
-            app:boxCornerRadiusTopStart="@dimen/dim_10dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="20"
-            app:endIconCheckable="true"
+            android:id="@+id/main_search_in_wiki"
+            style="@style/main_search_in_wiki_style"
+            android:hint="@string/main_search_in_wiki_hint"
+            app:helperText="@string/main_search_in_wiki_helper_text"
             app:endIconDrawable="@drawable/ic_wikipedia"
-            app:endIconMode="custom"
-            app:helperText="@string/wiki_helper_text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_edit_text"
+                android:id="@+id/main_search_in_wiki_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:id="@+id/chips"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
+            android:id="@+id/main_image_selection"
+            style="@style/main_image_selection_style"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout"
-            app:layout_constraintBottom_toTopOf="@+id/image_view">
+            app:layout_constraintTop_toBottomOf="@+id/main_search_in_wiki"
+            app:layout_constraintBottom_toTopOf="@+id/main_image_view">
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:singleSelection="true">
+                android:id="@+id/main_image_selection_chips_group"
+                style="@style/main_image_selection_chips_group_style">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_two_day"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chip_two_day_text">
+                    android:id="@+id/main_image_selection_chips_group_two_days_ago"
+                    style="@style/main_image_selection_chips_group_days"
+                    android:text="@string/main_image_selection_chips_group_two_days_ago_text">
                 </com.google.android.material.chip.Chip>
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_one_day"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chip_one_day_text">
+                    android:id="@+id/main_image_selection_chips_group_yesterday"
+                    style="@style/main_image_selection_chips_group_days"
+                    android:text="@string/main_image_selection_chips_group_yesterday_text">
                 </com.google.android.material.chip.Chip>
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_today"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chip_today_text">
+                    android:id="@+id/main_image_selection_chips_group_today"
+                    style="@style/main_image_selection_chips_group_days"
+                    android:text="@string/main_image_selection_chips_group_today_text">
                 </com.google.android.material.chip.Chip>
             </com.google.android.material.chip.ChipGroup>
 
         </LinearLayout>
 
         <ru.geekbrains.nasapictureoftheday.utils.EquilateralImageView
-            android:id="@+id/image_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/photo_of_the_day_stub"
+            android:id="@+id/main_image_view"
+            style="@style/main_image_view_style"
+            android:contentDescription="@string/main_image_view_content_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout"
+            app:layout_constraintTop_toBottomOf="@+id/main_search_in_wiki"
             app:srcCompat="@drawable/ic_no_photo_vector" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,21 +76,12 @@
     <include layout="@layout/bottom_sheet_layout" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/colorPrimary"
-        app:fabAlignmentMode="center"
+        android:id="@+id/main_bottom_app_bar"
+        style="@style/main_bottom_app_bar_style"
         app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backgroundTint="@color/colorAccent"
-        app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_plus_fab"
-        android:tint="@color/fab_tint"/>
+        android:id="@+id/main_fab"
+        style="@style/main_fab_style"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

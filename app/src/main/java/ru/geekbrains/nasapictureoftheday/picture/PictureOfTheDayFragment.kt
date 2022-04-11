@@ -44,19 +44,19 @@ class PictureOfTheDayFragment : Fragment() {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
         dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
 
-        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet))
 
-        input_layout.setEndIconOnClickListener {
+        main_search_in_wiki.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
-                Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
+                Uri.parse("https://en.wikipedia.org/wiki/${main_search_in_wiki_text.text.toString()}")
             })
         }
 
-        fab.setOnClickListener {
+        main_fab.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
 
-        chip_today.setOnClickListener {
+        main_image_selection_chips_group_today.setOnClickListener {
             dateOfCalendar = Calendar.getInstance()
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
             dateOfPicture = simpleDateFormat.format(dateOfCalendar.time)
@@ -65,7 +65,7 @@ class PictureOfTheDayFragment : Fragment() {
             ) { renderData(it) }
         }
 
-        chip_one_day.setOnClickListener {
+        main_image_selection_chips_group_yesterday.setOnClickListener {
             dateOfCalendar = Calendar.getInstance()
             dateOfCalendar.add(Calendar.DATE, -1)
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
@@ -75,7 +75,7 @@ class PictureOfTheDayFragment : Fragment() {
             ) { renderData(it) }
         }
 
-        chip_two_day.setOnClickListener {
+        main_image_selection_chips_group_two_days_ago.setOnClickListener {
             dateOfCalendar = Calendar.getInstance()
             dateOfCalendar.add(Calendar.DATE, -2)
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
@@ -100,8 +100,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT).show()
-            R.id.app_bar_search -> Toast.makeText(context, "Найти", Toast.LENGTH_SHORT).show()
+            R.id.bottom_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT).show()
+            R.id.bottom_bar_search -> Toast.makeText(context, "Найти", Toast.LENGTH_SHORT).show()
             android.R.id.home -> {
                 activity?.let { BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag") }
             }
@@ -111,7 +111,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun setBottomAppBar(view: View) {
         val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+        context.setSupportActionBar(view.findViewById(R.id.main_bottom_app_bar))
         setHasOptionsMenu(true)
     }
 
@@ -124,7 +124,7 @@ class PictureOfTheDayFragment : Fragment() {
                 if (url.isNullOrEmpty()) {
                     Toast.makeText(context, "Пустая ссылка", Toast.LENGTH_LONG).show()
                 } else {
-                    image_view.load(url) {
+                    main_image_view.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)

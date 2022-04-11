@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Фотография дня</string>
-    <string name="photo_of_the_day_stub">Фотография дня</string>
-    <string name="search_wiki">Найти в Википедии</string>
-    <string name="wiki_helper_text">Поищите термин в википедии</string>
+    <string name="main_image_view_content_description">Фотография дня</string>
+    <string name="main_search_in_wiki_hint">Найти в Википедии</string>
+    <string name="main_search_in_wiki_helper_text">Поищите термин в википедии</string>
     <string name="bottom_sheet_description_header_text">Two Clusters and a Comet</string>
     <string name="bottom_sheet_description_text">This lovely starfield spans some four full moons.</string>
-    <string name="app_bar_favorit_title">Избранное</string>
-    <string name="app_bar_search_title">Настройки</string>
-    <string name="navigation_one_title">На экран 1</string>
-    <string name="navigation_two_title">На экран 2</string>
-    <string name="chip_two_day_text">Позавчера</string>
-    <string name="chip_one_day_text">Вчера</string>
-    <string name="chip_today_text">Сегодня</string>
+    <string name="bottom_bar_favorit_title">Избранное</string>
+    <string name="bottom_bar_search_title">Настройки</string>
+    <string name="bottom_navigation_one_title">На экран 1</string>
+    <string name="bottom_navigation_two_title">На экран 2</string>
+    <string name="main_image_selection_chips_group_two_days_ago_text">Позавчера</string>
+    <string name="main_image_selection_chips_group_yesterday_text">Вчера</string>
+    <string name="main_image_selection_chips_group_today_text">Сегодня</string>
 
 </resources>
