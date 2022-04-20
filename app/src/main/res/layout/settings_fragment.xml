@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_choose_theme"
+    style="@style/settings_choose_theme_style"
+    tools:context=".settings.SettingsFragment">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/settings_choose_theme_chip_group"
+        style="@style/settings_choose_theme_chip_group_style">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_choose_theme_chip_group_default"
+            style="@style/settings_choose_theme_chip_group_themes_style"
+            android:text="@string/settings_choose_theme_chip_group_default_text"
+            app:chipSurfaceColor="@color/colorPrimary" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_choose_theme_chip_group_space"
+            style="@style/settings_choose_theme_chip_group_themes_style"
+            android:text="@string/settings_choose_theme_chip_group_space_text"
+            app:chipSurfaceColor="@color/colorPrimarySpace" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_choose_theme_chip_group_moon"
+            style="@style/settings_choose_theme_chip_group_themes_style"
+            android:text="@string/settings_choose_theme_chip_group_moon_text"
+            app:chipSurfaceColor="@color/colorPrimaryMoon" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_choose_theme_chip_group_mars"
+            style="@style/settings_choose_theme_chip_group_themes_style"
+            android:text="@string/settings_choose_theme_chip_group_mars_text"
+            app:chipSurfaceColor="@color/colorPrimaryMars" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

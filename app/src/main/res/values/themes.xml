@@ -7,7 +7,33 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/russooneregular</item>
         <item name="android:fontFamily">@font/russooneregular</item>
+    </style>
 
+    <style name="Theme.NasaPictureOfTheDayCosmic" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimarySpace</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkSpace</item>
+        <item name="colorAccent">@color/colorPrimarySpace</item>
+        <item name="fontFamily">@font/russooneregular</item>
+        <item name="android:fontFamily">@font/russooneregular</item>
+    </style>
+
+    <style name="Theme.NasaPictureOfTheDayMoon" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryMoon</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMoon</item>
+        <item name="colorAccent">@color/colorPrimaryMoon</item>
+        <item name="fontFamily">@font/russooneregular</item>
+        <item name="android:fontFamily">@font/russooneregular</item>
+    </style>
+
+    <style name="Theme.NasaPictureOfTheDayMars" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryMars</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMars</item>
+        <item name="colorAccent">@color/colorPrimaryMars</item>
+        <item name="fontFamily">@font/russooneregular</item>
+        <item name="android:fontFamily">@font/russooneregular</item>
     </style>
 
     <style name="main_search_in_wiki_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -16,7 +42,7 @@
         <item name="boxCornerRadiusBottomEnd">@dimen/input_layout_corner_radius_bottom_end</item>
         <item name="boxCornerRadiusBottomStart">@dimen/input_layout_corner_radius_bottom_start</item>
         <item name="boxCornerRadiusTopEnd">@dimen/input_layout_corner_radius_top_end</item>
-        <item name="boxCornerRadiusTopStart">@dimen/input_layout_corner_radius_top_end</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_layout_corner_radius_top_start</item>
         <item name="counterEnabled">true</item>
         <item name="counterMaxLength">20</item>
         <item name="endIconCheckable">true</item>
@@ -34,10 +60,9 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="singleSelection">true</item>
-        <item name="font">@font/cuprumvariablefont</item>
     </style>
 
-    <style name="main_image_selection_chips_group_days" parent="Widget.MaterialComponents.Chip.Choice">
+    <style name="main_image_selection_chips_group_days_style" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/chip_text_style_appearance</item>
@@ -45,6 +70,8 @@
 
     <style name="chip_text_style_appearance">
         <item name="android:fontFamily">@font/russooneregular</item>
+        <item name="android:textSize">@dimen/main_image_selection_chips_group_text_size</item>
+        <item name="android:textColor">@color/main_image_selection_chips_group_text_color</item>
     </style>
 
     <style name="main_image_view_style">
@@ -116,6 +143,28 @@
         <item name="android:paddingLeft">@dimen/bottom_sheet_description_padding_start</item>
         <item name="android:paddingEnd">@dimen/bottom_sheet_description_padding_end</item>
         <item name="android:paddingRight">@dimen/bottom_sheet_description_padding_end</item>
-
     </style>
+
+    <style name="settings_choose_theme_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">@dimen/settings_layout_margin</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="settings_choose_theme_chip_group_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipSpacingHorizontal">@dimen/settings_choose_theme_chip_spacing_horizontal</item>
+        <item name="chipSpacingVertical">@dimen/settings_choose_theme_chip_spacing_vertical</item>
+        <item name="singleLine">false</item>
+        <item name="singleSelection">true</item>
+    </style>
+
+    <style name="settings_choose_theme_chip_group_themes_style" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

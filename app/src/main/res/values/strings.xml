@@ -12,5 +12,11 @@
     <string name="main_image_selection_chips_group_two_days_ago_text">Позавчера</string>
     <string name="main_image_selection_chips_group_yesterday_text">Вчера</string>
     <string name="main_image_selection_chips_group_today_text">Сегодня</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings_choose_theme_chip_group_default_text">Тема по-умолчанию</string>
+    <string name="settings_choose_theme_chip_group_space_text">Космическая тема</string>
+    <string name="settings_choose_theme_chip_group_moon_text">Лунная тема</string>
+    <string name="settings_choose_theme_chip_group_mars_text">Марсианская тема</string>
 
 </resources>

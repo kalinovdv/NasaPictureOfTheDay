@@ -41,19 +41,19 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/main_image_selection_chips_group_two_days_ago"
-                    style="@style/main_image_selection_chips_group_days"
+                    style="@style/main_image_selection_chips_group_days_style"
                     android:text="@string/main_image_selection_chips_group_two_days_ago_text">
                 </com.google.android.material.chip.Chip>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/main_image_selection_chips_group_yesterday"
-                    style="@style/main_image_selection_chips_group_days"
+                    style="@style/main_image_selection_chips_group_days_style"
                     android:text="@string/main_image_selection_chips_group_yesterday_text">
                 </com.google.android.material.chip.Chip>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/main_image_selection_chips_group_today"
-                    style="@style/main_image_selection_chips_group_days"
+                    style="@style/main_image_selection_chips_group_days_style"
                     android:text="@string/main_image_selection_chips_group_today_text">
                 </com.google.android.material.chip.Chip>
             </com.google.android.material.chip.ChipGroup>

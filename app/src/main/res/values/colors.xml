@@ -15,4 +15,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="fab_tint">#FFFFFF</color>
+    <color name="main_image_selection_chips_group_text_color">#FFFFFF</color>
+    <color name="colorPrimarySpace">#3949ab</color>
+    <color name="colorPrimaryDarkSpace">#00227b</color>
+    <color name="colorPrimaryMoon">#546e7a</color>
+    <color name="colorPrimaryDarkMoon">#29434e</color>
+    <color name="colorPrimaryMars">#f4511e</color>
+    <color name="colorPrimaryDarkMars">#b91400</color>
 </resources>

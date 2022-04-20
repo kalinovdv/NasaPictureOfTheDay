@@ -24,4 +24,8 @@
     <dimen name="bottom_navigation_margin_start">8dp</dimen>
     <dimen name="bottom_navigation_margin_top">8dp</dimen>
     <dimen name="bottom_navigation_margin_end">8dp</dimen>
+    <dimen name="main_image_selection_chips_group_text_size">13sp</dimen>
+    <dimen name="settings_layout_margin">20dp</dimen>
+    <dimen name="settings_choose_theme_chip_spacing_horizontal">200dp</dimen>
+    <dimen name="settings_choose_theme_chip_spacing_vertical">10dp</dimen>
 </resources>
