@@ -16,6 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.main_fragment.*
 import ru.geekbrains.nasapictureoftheday.MainActivity
 import ru.geekbrains.nasapictureoftheday.R
+import ru.geekbrains.nasapictureoftheday.settings.SettingsFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -100,10 +101,21 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.bottom_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT).show()
-            R.id.bottom_bar_search -> Toast.makeText(context, "Найти", Toast.LENGTH_SHORT).show()
+            R.id.bottom_bar_favorit -> Toast.makeText(context, "Избранное", Toast.LENGTH_SHORT)
+                .show()
+            R.id.bottom_bar_search -> {
+                val settingsFragment = SettingsFragment.newInstance()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.container, SettingsFragment.newInstance(), "settings")?.addToBackStack("")?.commit()
+
+            }
             android.R.id.home -> {
-                activity?.let { BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag") }
+                activity?.let {
+                    BottomNavigationDrawerFragment().show(
+                        it.supportFragmentManager,
+                        "tag"
+                    )
+                }
             }
         }
         return super.onOptionsItemSelected(item)
@@ -130,11 +142,13 @@ class PictureOfTheDayFragment : Fragment() {
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
 
-                    bottomSheetBehavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+                    bottomSheetBehavior.addBottomSheetCallback(object :
+                        BottomSheetBehavior.BottomSheetCallback() {
                         override fun onStateChanged(bottomSheet: View, newState: Int) {
                             when (newState) {
                                 BottomSheetBehavior.STATE_EXPANDED -> {
-                                    val textDescription = bottomSheet.findViewById<TextView>(R.id.bottom_sheet_description)
+                                    val textDescription =
+                                        bottomSheet.findViewById<TextView>(R.id.bottom_sheet_description)
                                     textDescription.text = explanation
                                 }
                             }
