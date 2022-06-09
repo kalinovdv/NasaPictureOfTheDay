@@ -10,40 +10,51 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.settings_fragment.*
-import ru.geekbrains.nasapictureoftheday.MainActivity
-import ru.geekbrains.nasapictureoftheday.R
+import ru.geekbrains.nasapictureoftheday.*
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : Fragment(), View.OnClickListener {
+
+    private lateinit var parentActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        parentActivity = requireActivity() as MainActivity
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bundle = Bundle();
+        settings_choose_theme_chip_group_default.setOnClickListener(this)
+        settings_choose_theme_chip_group_space.setOnClickListener(this)
+        settings_choose_theme_chip_group_moon.setOnClickListener(this)
+        settings_choose_theme_chip_group_mars.setOnClickListener(this)
+    }
 
-        settings_choose_theme_chip_group_space.setOnClickListener {
-           //bundle.putString("themeName", "Cosmic")
-            val sPref = PreferenceManager.getDefaultSharedPreferences(context)
-            val editor: SharedPreferences.Editor = sPref.edit()
-            editor.putString("themeName", "Cosmic")
-            editor.commit()
-            recreate(requireActivity())
-        }
-
-        settings_choose_theme_chip_group_moon.setOnClickListener {
-            //bundle.putString("themeName", "Moon")
-            val sPref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            val editor: SharedPreferences.Editor = sPref.edit()
-            editor.putString("themeName", "Moon")
-            editor.commit()
-            recreate(requireActivity())
+    override fun onClick(v: View) {
+        when (v.id){
+            R.id.settings_choose_theme_chip_group_space -> {
+                parentActivity.setCurrentTheme(ThemeSpace)
+                parentActivity.recreate()
+            }
+            R.id.settings_choose_theme_chip_group_moon -> {
+                parentActivity.setCurrentTheme(ThemeMoon)
+                parentActivity.recreate()
+            }
+            R.id.settings_choose_theme_chip_group_mars -> {
+                parentActivity.setCurrentTheme(ThemeMars)
+                parentActivity.recreate()
+            }
+            else -> {
+                parentActivity.setCurrentTheme(ThemeDefault)
+                parentActivity.recreate()
+            }
         }
     }
 
@@ -51,4 +62,5 @@ class SettingsFragment : Fragment() {
         @JvmStatic
         fun newInstance() = SettingsFragment()
     }
+
 }
